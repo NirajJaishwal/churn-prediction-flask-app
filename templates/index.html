@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Customer Churn Prediction</h1>
+    <p>Customer churn prediction is a key factor for the long-term success of a business. It is important for businesses to identify customers who are likely to churn and take necessary actions to retain them. In this project, we will build a machine learning model to predict customer churn using a dataset of a telecom company.</p>
+    <h2>Enter Customer Details for Churn Prediction</h2>
+    <form action="/predict" method="post">
+        <label>Contract:</label>
+        <select name="Contract">
+            <option value="Month-to-month">Month-to-month</option>
+            <option value="One year">One year</option>
+            <option value="Two year">Two year</option>
+        </select><br><br>
+
+        <label>Online Security:</label>
+        <select name="OnlineSecurity">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+            <option value="No internet service">No internet service</option>
+        </select><br><br>
+
+        <label>Monthly Charge</label>
+        <input type="text" name="MonthlyCharges"><br><br>
+
+        <label>Tenure:</label>
+        <input type="text" name="tenure"><br><br>
+
+        <label>Internet Services</label>
+        <select name="InternetService">
+            <option value="DSL">DSL</option>
+            <option value="Fiber optic">Fiber optic</option>
+            <option value="No">No</option>
+        </select><br><br>
+        
+        <label>Total Charges:</label>
+        <input type="text" name="TotalCharges"><br><br>
+
+        <label>Payment Method:</label>
+        <select name="PaymentMethod">
+            <option value="Electronic check">Electronic check</option>
+            <option value="Mailed check">Mailed check</option>
+            <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+            <option value="Credit card (automatic)">Credit card (automatic)</option>
+        </select><br><br>
+
+        <label>Senior Citizen:</label>
+        <select name="SeniorCitizen">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>Streaming Movies</label>
+        <select name="StreamingMovies">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+            <option value="No internet service">No internet service</option>
+        </select><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
