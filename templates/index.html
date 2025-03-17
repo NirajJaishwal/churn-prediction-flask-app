@@ -96,5 +96,23 @@
         <button class="next" onclick="nextPrediction()">Next Prediction</button>
       </div>
     </div>
+    <script>
+        function showPrediction(event) {
+          event.preventDefault();
+          document.getElementById("form-container").style.display = "none";
+          document.getElementById("result-container").style.display = "block";
+        }
+  
+        function goBack() {
+          document.getElementById("form-container").style.display = "block";
+          document.getElementById("result-container").style.display = "none";
+        }
+  
+        function nextPrediction() {
+          document.querySelector(".form").reset();
+          document.getElementById("form-container").style.display = "block";
+          document.getElementById("result-container").style.display = "none";
+        }
+      </script>
   </body>
 </html>
