@@ -89,29 +89,12 @@
           <button class="submit" type="submit">Predict</button>
         </form>
       </div>
-
-      <div id="result-container" class="result-container">
-        <h3 class="result">{{ prediction_text }}</h3>
-        <button class="back" onclick="goBack()">Back</button>
-        <button class="next" onclick="nextPrediction()">Next Prediction</button>
-      </div>
     </div>
     <script>
         function showPrediction(event) {
           event.preventDefault();
-          document.getElementById("form-container").style.display = "none";
-          document.getElementById("result-container").style.display = "block";
-        }
-  
-        function goBack() {
-          document.getElementById("form-container").style.display = "block";
-          document.getElementById("result-container").style.display = "none";
-        }
-  
-        function nextPrediction() {
-          document.querySelector(".form").reset();
-          document.getElementById("form-container").style.display = "block";
-          document.getElementById("result-container").style.display = "none";
+          let form = document.querySelector(".form");
+          form.submit();
         }
       </script>
   </body>

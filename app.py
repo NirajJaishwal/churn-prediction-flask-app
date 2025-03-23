@@ -73,7 +73,7 @@ def predict():
         result = 'Churn' if prediction[0] == 'Yes' else 'Not Churn'
         print("Result:", result)
 
-        return render_template('index.html', prediction_text='Customer will {}'.format(result))  
+        return render_template('result.html', prediction_text='Customer will {}'.format(result))  
 
     except Exception as e:
         return jsonify({'error': str(e)})
