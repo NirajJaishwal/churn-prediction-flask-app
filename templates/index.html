@@ -1,70 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Customer Churn Prediction</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <h1>Customer Churn Prediction</h1>
-    <p>Customer churn prediction is a key factor for the long-term success of a business. It is important for businesses to identify customers who are likely to churn and take necessary actions to retain them. In this project, we will build a machine learning model to predict customer churn using a dataset of a telecom company.</p>
-    <h2>Enter Customer Details for Churn Prediction</h2>
-    <form action="/predict" method="post">
-        <label>Contract:</label>
-        <select name="Contract">
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="form-container">
+        <h1 class="header">Customer Churn Prediction</h1>
+        <p class="paragraph">
+          Customer churn prediction is a key factor for the long-term success of
+          a business. It helps identify customers likely to churn and take
+          necessary actions to retain them.
+        </p>
+
+        <h2 class="header2">Enter Customer Details for Churn Prediction</h2>
+        <form
+          class="form"
+          action="/predict"
+          method="post"
+          onsubmit="showPrediction(event)"
+        >
+          <label>Contract:</label>
+          <select name="Contract" required>
+            <option value="" disabled selected>Select a contract type</option>
             <option value="Month-to-month">Month-to-month</option>
             <option value="One year">One year</option>
             <option value="Two year">Two year</option>
-        </select><br><br>
+          </select>
 
-        <label>Online Security:</label>
-        <select name="OnlineSecurity">
+          <label>Online Security:</label>
+          <select name="OnlineSecurity" required>
+            <option value="" disabled selected></option>
             <option value="No">No</option>
             <option value="Yes">Yes</option>
             <option value="No internet service">No internet service</option>
-        </select><br><br>
+          </select>
 
-        <label>Monthly Charge</label>
-        <input type="text" name="MonthlyCharges"><br><br>
+          <label>Monthly Charge</label>
+          <input type="text" name="MonthlyCharges" required />
 
-        <label>Tenure:</label>
-        <input type="text" name="tenure"><br><br>
+          <label>Tenure:</label>
+          <input type="text" name="tenure" required />
 
-        <label>Internet Services</label>
-        <select name="InternetService">
+          <label>Internet Services</label>
+          <select name="InternetService" required>
+            <option value="" disabled selected>
+              Select a internet services
+            </option>
             <option value="DSL">DSL</option>
             <option value="Fiber optic">Fiber optic</option>
             <option value="No">No</option>
-        </select><br><br>
-        
-        <label>Total Charges:</label>
-        <input type="text" name="TotalCharges"><br><br>
+          </select>
 
-        <label>Payment Method:</label>
-        <select name="PaymentMethod">
+          <label>Total Charges:</label>
+          <input type="text" name="TotalCharges" required />
+
+          <label>Payment Method:</label>
+          <select name="PaymentMethod" required>
+            <option value="" disabled selected>Select a payment method</option>
             <option value="Electronic check">Electronic check</option>
             <option value="Mailed check">Mailed check</option>
-            <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
-            <option value="Credit card (automatic)">Credit card (automatic)</option>
-        </select><br><br>
+            <option value="Bank transfer (automatic)">
+              Bank transfer (automatic)
+            </option>
+            <option value="Credit card (automatic)">
+              Credit card (automatic)
+            </option>
+          </select>
 
-        <label>Senior Citizen:</label>
-        <select name="SeniorCitizen">
+          <label>Senior Citizen:</label>
+          <select name="SeniorCitizen" required>
+            <option value="" disabled selected>Select</option>
             <option value="0">No</option>
             <option value="1">Yes</option>
-        </select>
+          </select>
 
-        <label>Streaming Movies</label>
-        <select name="StreamingMovies">
+          <label>Streaming Movies</label>
+          <select name="StreamingMovies" required>
+            <option value="" disabled selected>Select</option>
             <option value="No">No</option>
             <option value="Yes">Yes</option>
             <option value="No internet service">No internet service</option>
-        </select><br><br>
+          </select>
 
-        <button type="submit">Predict</button>
-    </form>
-
-    <h3>{{ prediction_text }}</h3>
-</body>
+          <button class="submit" type="submit">Predict</button>
+        </form>
+      </div>
+    </div>
+    <script>
+        function showPrediction(event) {
+          event.preventDefault();
+          let form = document.querySelector(".form");
+          form.submit();
+        }
+      </script>
+  </body>
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h3 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        .prediction {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Prediction Result</h2>
+        <h3 id="prediction_text" class="prediction">{{ prediction_text }}</h3>
+
+        <button class="btn" onClick="goBack()">Back</button>
+        <button class="btn" onClick="nextPrediction()">Next Prediction</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+        function nextPrediction() {
+            sessionStorage.clear();
+            window.location.href = "/";
+        }
+        window.onload = function() {
+            let resultText = document.getElementById("prediction_text");
+            if (resultText.innerText.includes("Not Churn")) {
+                resultText.style.color = "green";
+            } else {
+                resultText.style.color = "red";
+            }
+        };
+    </script>
+    
+</body>
+</html>
+

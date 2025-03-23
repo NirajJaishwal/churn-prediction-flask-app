@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Customer Churn/static"
+		},
+		{
+			"path": "../../Customer Churn/templates"
+		}
+	],
+	"settings": {}
+}
