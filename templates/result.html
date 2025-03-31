@@ -50,6 +50,7 @@
             color:#28a745
         }
     </style>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
     <div class="container">
@@ -61,25 +62,6 @@
         <button class="btn" onClick="goBack()">Back</button>
         <button class="btn" onClick="nextPrediction()">Next Prediction</button>
     </div>
-
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-        function nextPrediction() {
-            sessionStorage.clear();
-            window.location.href = "/";
-        }
-        window.onload = function() {
-            let resultText = document.getElementById("prediction_text");
-            if (resultText.innerText.includes("Not Churn")) {
-                resultText.style.color = "green";
-            } else {
-                resultText.style.color = "red";
-            }
-        };
-    </script>
-    
 </body>
 </html>
 
