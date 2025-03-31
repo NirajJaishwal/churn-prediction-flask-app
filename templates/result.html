@@ -44,12 +44,19 @@
             font-size: 24px;
             font-weight: bold;
         }
+        .prediction_score {
+            font-size: 20px;
+            font-weight: bold;
+            color:#28a745
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Prediction Result</h2>
         <h3 id="prediction_text" class="prediction">{{ prediction_text }}</h3>
+
+        <h3 class="prediction_score">Prediction Score {{ probability_score }}%</h3>
 
         <button class="btn" onClick="goBack()">Back</button>
         <button class="btn" onClick="nextPrediction()">Next Prediction</button>

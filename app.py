@@ -50,16 +50,11 @@ def predict():
                 mapping_dict['InternetService'][features[4]],
                 features[5],
                 mapping_dict['PaymentMethod'][features[6]],
-                # mapping_dict['SeniorCitizen'][features[7]],
                 int(features[7]),
                 mapping_dict['StreamingMovies'][features[8]]
             ]
         except KeyError as e:
             return jsonify({"error": f"Invalid input value: {str(e)}"}), 400
-
-
-        # Convert to numpy array and reshape\
-        final_features = np.array(encoded_features).reshape(1, -1)
 
         # define feature names as per training model
         columns = ['Contract', 'OnlineSecurity', 'MonthlyCharges', 'tenure', 'InternetService', 'TotalCharges', 'PaymentMethod', 'SeniorCitizen', 'StreamingMovies']
@@ -68,12 +63,15 @@ def predict():
         df = pd.DataFrame([encoded_features], columns=columns)
         # Predict using the model
         prediction = model.predict(df)
-        print("Prediction:", prediction)
-        result = prediction
-        result = 'Churn' if prediction[0] == 'Yes' else 'Not Churn'
-        print("Result:", result)
 
-        return render_template('result.html', prediction_text='Customer will {}'.format(result))  
+        # get the prediction accuracy
+        single_proba = model.predict_proba(df)
+        confidence_score = round(np.max(single_proba).item() * 100, 2)
+
+        # indicate if the customer will churn or not
+        result = 'Churn' if prediction[0] == 'Yes' else 'Not Churn'
+
+        return render_template('result.html', prediction_text='Customer will {}'.format(result), probability_score = confidence_score)
 
     except Exception as e:
         return jsonify({'error': str(e)})
