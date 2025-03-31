@@ -38,9 +38,6 @@ def predict():
             request.form.get('StreamingMovies', '')
         ]
 
-        print("Raw Form Data:", features)  
-
-
         try:
             encoded_features = [
                 mapping_dict['Contract'][features[0]],
