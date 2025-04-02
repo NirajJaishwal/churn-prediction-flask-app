@@ -37,7 +37,11 @@ This project predicts whether a telecom customer is likely to churn (leave the s
 4. **Access the web interface:** Open `http://127.0.0.1:5000/` in your browser.
 
 ## 📸 Screenshots
+### 🔹 Web Interface
 ![Web UI](thumbnail/UI.png)
+
+### 🔹 Model Predictions
+![Prediction](thumbnail/Prediction.png)
 
 ## 🏆 Key Learnings
 - Feature engineering to improve model accuracy
