@@ -49,8 +49,8 @@ This project predicts whether a telecom customer is likely to churn (leave the s
 - Connecting frontend with backend for user interaction
 
 ## 👨‍💻 Contributors
-- **Your Name** - Machine Learning & Backend
-- **Collaborator's Name** - Frontend Development
+- **Niraj Jaishwal** - Machine Learning & Backend
+- **Roshan Panta** - Frontend Development
 
 ## 📝 License
 This project is licensed under the MIT License.
